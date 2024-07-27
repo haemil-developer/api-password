@@ -1,21 +1,25 @@
 CREATE TABLE `hash_tag` (
-  `id` bigint PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(100) UNIQUE NOT NULL COMMENT 'Do not allow space'
 );
 
 CREATE TABLE `sns` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` enum NOT NULL
 );
 
 CREATE TABLE `password_master` (
-  `id` bigint PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
   `user_id` bigint NOT NULL,
-  `master` varchar(100) NOT NULL
+  `master` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL,
+  `created_by` varchar(255) NOT NULL COMMENT 'email',
+  `updated_at` timestamp NOT NULL,
+  `updated_by` varchar(255) NOT NULL COMMENT 'email'
 );
 
 CREATE TABLE `password_category` (
-  `id` bigint PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
   `user_id` bigint,
   `name` varchar(50) NOT NULL COMMENT 'Do not allow duplicate by user_id',
   `created_at` timestamp NOT NULL,
@@ -25,7 +29,7 @@ CREATE TABLE `password_category` (
 );
 
 CREATE TABLE `password` (
-  `id` bigint PRIMARY KEY,
+  `id` bigint PRIMARY KEY AUTO_INCREMENT,
   `user_id` bigint,
   `password_category_id` bigint,
   `name` varchar(50) NOT NULL,
