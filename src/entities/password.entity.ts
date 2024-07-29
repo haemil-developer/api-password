@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { PasswordCategory } from './password.category.entity';
+import { PasswordCategory } from './category.entity';
 import { PasswordHashTag } from './password.hash.tag.entity';
 import { PasswordSns } from './password.sns.entity';
 
