@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity('password_category')
-export class PasswordCategory {
+export class Category {
   @PrimaryGeneratedColumn('increment', { type: 'bigint' })
   id: number;
 
