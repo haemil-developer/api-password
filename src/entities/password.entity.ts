@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { PasswordCategory } from './category.entity';
+import { Category } from './category.entity';
 import { PasswordHashTag } from './password.hash.tag.entity';
 import { PasswordSns } from './password.sns.entity';
 
@@ -20,9 +20,8 @@ export class Password {
   @Column({ type: 'bigint', name: 'user_id' })
   userId: number;
 
-  @ManyToOne(() => PasswordCategory, (category) => category.id)
-  @JoinColumn({ name: 'password_category_id' })
-  passwordCategory: PasswordCategory;
+  @Column({ type: 'bigint', name: 'password_category_id' })
+  categoryId: number;
 
   @Column()
   name: string;
@@ -50,6 +49,10 @@ export class Password {
 
   @Column({ type: 'varchar', length: 255, name: 'updated_by' })
   updatedBy: string;
+
+  @ManyToOne(() => Category, (category) => category.id)
+  @JoinColumn({ name: 'password_category_id' })
+  category: Category;
 
   @OneToMany(
     () => PasswordHashTag,
