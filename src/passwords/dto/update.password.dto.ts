@@ -1,5 +1,5 @@
 export class UpdatePasswordDto {
-  id: number
+  id: number;
   categoryId: number;
   name: string;
   loginId: string;
