@@ -23,6 +23,7 @@ export class CategoriesRepository {
 
   findAll(condition: SearchCategoryDto) {
     const where = {};
+    SearchConditionUtil.equalId(condition.id, where);
     SearchConditionUtil.equalUserId(condition.userId, where);
     SearchConditionUtil.likeName(condition.name, where);
 
