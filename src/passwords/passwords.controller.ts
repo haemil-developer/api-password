@@ -1,8 +1,17 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, Query} from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { PasswordsService } from './passwords.service';
-import {AddPasswordDto} from "./dto/add.password.dto";
-import {SearchPasswordDto} from "./dto/search.password.dto";
-import {UpdatePasswordDto} from "./dto/update.password.dto";
+import { AddPasswordDto } from './dto/add.password.dto';
+import { SearchPasswordDto } from './dto/search.password.dto';
+import { UpdatePasswordDto } from './dto/update.password.dto';
 
 @Controller('passwords')
 export class PasswordsController {
@@ -24,7 +33,10 @@ export class PasswordsController {
   }
 
   @Patch('/:id')
-  updatePassword(@Param('id') id: number, @Body() requestBody: UpdatePasswordDto) {
+  updatePassword(
+    @Param('id') id: number,
+    @Body() requestBody: UpdatePasswordDto,
+  ) {
     return this.passwordsService.update(requestBody);
   }
 

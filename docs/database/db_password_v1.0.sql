@@ -53,11 +53,11 @@ CREATE TABLE `password_sns` (
   `sns_id` int
 );
 
-ALTER TABLE `password` ADD FOREIGN KEY (`password_category_id`) REFERENCES `password_categories` (`id`);
+ALTER TABLE `password` ADD FOREIGN KEY (`password_category_id`) REFERENCES `password_category` (`id`);
 
-ALTER TABLE `password_hash_tags` ADD FOREIGN KEY (`password_id`) REFERENCES `password` (`id`);
+ALTER TABLE `password_hash_tag` ADD FOREIGN KEY (`password_id`) REFERENCES `password` (`id`);
 
-ALTER TABLE `password_hash_tags` ADD FOREIGN KEY (`hash_tag_id`) REFERENCES `hash_tags` (`id`);
+ALTER TABLE `password_hash_tag` ADD FOREIGN KEY (`hash_tag_id`) REFERENCES `hash_tag` (`id`);
 
 ALTER TABLE `password_sns` ADD FOREIGN KEY (`password_id`) REFERENCES `password` (`id`);
 
